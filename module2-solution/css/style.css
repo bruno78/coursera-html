@@ -1,0 +1,114 @@
+
+*{
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  margin: 0;
+  font-size:16px/18px;
+}
+
+h1 {text-align: center;
+  font-size: 175%;
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-shadow: 2px, 2px, 10px, #bbb;
+  color: #191922;
+}
+
+h2 {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 5px;
+  font-size: 1.25em;
+  width: 150px;
+  text-align: center;
+  margin-top: -13px;
+  margin-bottom: 0;
+  position: absolute;
+  right: -1px;
+  top: 12px;
+}
+
+.section {
+  background-color: gray;
+  border: 3px solid black;
+  position: relative;
+  /* height: 170px; */
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+  padding-top: 35px;
+
+}
+
+.row {
+  background-color: white;
+  position: relative;
+  height: 170px;
+  margin-right: 15px;
+  margin-left: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+#chicken {
+  background-color: pink;
+
+}
+
+#chicken:hover {
+  background-color: #fff;
+  color: #ff8c38;
+  cursor: pointer;
+}
+#beef {
+  background-color: red;
+  color: white;
+  border-color: black;
+}
+
+#beef:hover {
+  background-color: #fff;
+  color: #913232;
+  cursor: pointer;
+}
+#sushi {
+  background-color: #DEB887;
+}
+
+#sushi:hover {
+  background-color: #fff;
+  color: #369818;
+  cursor: pointer;
+}
+
+/*********** Desktop view *************/
+@media (min-width: 992px) {
+  .col-lg-4 {
+    float: left;
+    width: 33%;
+  }
+}
+
+/*********** Tablet view *************/
+@media (min-width: 768px) and (max-width: 991px ) {
+  .col-md-6, .col-md-12 {
+    float: left;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+}
+
+/*********** Mobile view *************/
+@media (max-width: 767px){
+  .col-sm-12 {
+    width: 100%;
+  }
+
+}
