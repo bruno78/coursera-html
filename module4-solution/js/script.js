@@ -63,7 +63,7 @@ var switchMenuToActive = function () {
 // On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
 
-// TODO: STEP 0: Look over the code from
+// DONE: STEP 0: Look over the code from
 // *** start ***
 // to
 // *** finish ***
@@ -83,8 +83,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
-  buildAndShowMenuItemsHTML,
+  buildAndShowHomeHTML, // ***** <---- DONE: STEP 1: Substitute [...] ******
   true); // Explicitely setting the flag to get JSON from server processed into an object literal
+  console.log("Step 1");
 });
 // *** finish **
 
@@ -96,17 +97,16 @@ function buildAndShowHomeHTML (categories) {
   // Load home snippet page
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
-    function (homeHtml) {
+    function (homeHtmlUrl) {
 
-      // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
+      // DONE: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
       // var chosenCategoryShortName = ....
       var chosenCategoryShortName = chooseRandomCategory(categories);
+      console.log("Short Name = " + chosenCategoryShortName.short_name);
 
-
-
-      // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
+      // DONE: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2. Use existing insertProperty function for that purpose.
       // Look through this code for an example of how to do use the insertProperty function.
       // WARNING! You are inserting something that will have to result in a valid Javascript
@@ -116,15 +116,19 @@ function buildAndShowHomeHTML (categories) {
       // $dc.loadMenuItems('L')
       // Hint: you need to surround the chosen category short name with something before inserting
       // it into the home html snippet.
+      var myShortName = "'" + chosenCategoryShortName.short_name + "'"
       //
       // var homeHtmlToInsertIntoMainPage = ....
-      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtmlUrl, "randomCategoryShortName", myShortName);
+      console.log("Step 3");
 
+      var homeHtmlToInsertIntoMainPage =
+        insertProperty(homeHtmlUrl, "randomCategoryShortName", myShortName);
 
+      console.log("Step 4");
+      console.log(homeHtmlToInsertIntoMainPage);
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
-      // ....
       insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
 
     },
